@@ -7,10 +7,7 @@ import net.javayum.spring.environment.property.model.Value;
 import net.javayum.spring.environment.property.model.dto.KeyDTO;
 import net.javayum.spring.environment.property.model.dto.ValueDTO;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = PersistenceConfiguration.TABLE_NAME_PROPERTIES)
@@ -32,11 +29,42 @@ public class PropertyEntity implements Property {
 
     public static PropertyEntity of(Key key, Value value) { return new PropertyEntity(key.toStringValue(), value.toStringValue());}
 
+    @Transient
     public Key getKey() {
         return KeyDTO.of(key);
     }
 
+    @Transient
     public Value getValue() {
         return ValueDTO.of(value);
+    }
+
+    @Override
+    public String toString() {
+
+        return key + "=" + value;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+
+        boolean result = false;
+
+        if ( object instanceof Property ) {
+
+            Property property = (Property) object;
+
+            if ( property.getKey().toStringValue().equals(key) && property.getValue().toStringValue().equals(value)) {
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return key.hashCode();
     }
 }

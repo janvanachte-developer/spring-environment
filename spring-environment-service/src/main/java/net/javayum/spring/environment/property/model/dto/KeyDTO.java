@@ -2,7 +2,9 @@ package net.javayum.spring.environment.property.model.dto;
 
 import net.javayum.spring.environment.property.model.Key;
 
-public class KeyDTO implements Key {
+import java.io.Serializable;
+
+public class KeyDTO implements Key, Serializable {
 
     final private String key;
 

@@ -2,7 +2,9 @@ package net.javayum.spring.environment.property.model.dto;
 
 import net.javayum.spring.environment.property.model.Value;
 
-public class ValueDTO implements Value{
+import java.io.Serializable;
+
+public class ValueDTO implements Value, Serializable {
 
     private final String value;
 
