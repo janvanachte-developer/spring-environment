@@ -1,0 +1,2 @@
+INSERT INTO PROPERTIES VALUES ('key1', 'value1');
+COMMIT;
