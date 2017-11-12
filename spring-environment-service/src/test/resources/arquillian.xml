@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://jboss.org/schema/arquillian"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian http://www.jboss.org/schema/arquillian/arquillian_1_0.xsd">
+ 
+    <container qualifier="wls-remote" default="true">
+        <configuration>
+            <property name="wlHome">PATH_TO_WLSERVER_DIRECTORY</property>
+            <property name="adminUrl">t3://localhost:7001</property>
+            <property name="adminUserName">USERNAME</property>
+            <property name="adminPassword">PASSWORD</property>
+            <property name="target">myserver</property>
+        </configuration>
+    </container>
+ 
+    <container qualifier="wls-managed">
+        <configuration>
+            <property name="middlewareHome">PATH_TO_MIDDLEWARE_HOME_DIRECTORY</property>
+            <property name="wlHome">PATH_TO_WLSERVER_DIRECTORY</property>
+            <property name="domainDirectory">PATH_TO_DOMAIN_DIRECTORY</property>
+            <property name="adminUrl">t3://localhost:7001</property>
+            <property name="adminUserName">USERNAME</property>
+            <property name="adminPassword">PASSWORD</property>
+            <property name="target">myserver</property>
+        </configuration>
+    </container>
+</arquillian>
