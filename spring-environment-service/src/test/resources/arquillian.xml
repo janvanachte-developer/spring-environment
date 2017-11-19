@@ -5,11 +5,11 @@
  
     <container qualifier="wls-remote" default="true">
         <configuration>
-            <property name="wlHome">PATH_TO_WLSERVER_DIRECTORY</property>
+            <property name="wlHome">/shared/depot/com.oracle/fmw_12.2.1.2.0_wls_Disk1_1of1/home/wlserver</property>
             <property name="adminUrl">t3://localhost:7001</property>
-            <property name="adminUserName">USERNAME</property>
-            <property name="adminPassword">PASSWORD</property>
-            <property name="target">myserver</property>
+            <property name="adminUserName">weblogic</property>
+            <property name="adminPassword">weblogic12345</property>
+            <property name="target">AdminServer</property>
         </configuration>
     </container>
  
