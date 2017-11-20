@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Configuration>
+
+	<Appenders>
+		<Console name="consoleAppender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>LOG4J2.XML -4r [%t] %-5p %c %x \u2013 %m%n</Pattern>
+			</PatternLayout>
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="eu" level="debug">
+		</Logger>
+
+		<Logger name="org.springframework" level="debug">
+		</Logger>
+
+		<Root level="info">
+			<AppenderRef ref="consoleAppender"/>
+		</Root>
+	</Loggers>
+</Configuration>
