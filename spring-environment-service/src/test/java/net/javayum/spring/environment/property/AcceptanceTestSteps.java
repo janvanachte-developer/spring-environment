@@ -1,24 +1,23 @@
-package net.javayum.spring.environment.property.property.service;
+package net.javayum.spring.environment.property;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.javayum.spring.environment.property.ApplicationConfiguration;
-import net.javayum.spring.environment.property.ApplicationStub;
-import net.javayum.spring.environment.property.property.infrastructure.persistence.jpa.PropertyEntity;
-import net.javayum.spring.environment.property.property.model.Property;
-import net.javayum.spring.environment.property.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.property.model.dto.ValueDTO;
-import net.javayum.spring.environment.property.property.service.rs.PropertyServiceJAXRSConfiguration;
+import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyEntity;
+import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.model.dto.KeyDTO;
+import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.resource.PropertyResource;
+import net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Map;
 
-import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @ContextConfiguration(classes = ApplicationConfiguration.class)
 public class AcceptanceTestSteps {
@@ -27,8 +26,8 @@ public class AcceptanceTestSteps {
     private ApplicationStub application;
 
     @Autowired
-    @Qualifier(PropertyServiceJAXRSConfiguration.SERVICE_NAME)
-    private PropertyService service;
+    @Qualifier(PropertyResourceJAXRS.SERVICE_NAME)
+    private PropertyResource resource;
 
     private String key;
 
@@ -41,14 +40,14 @@ public class AcceptanceTestSteps {
 
             Property property = PropertyEntity.of(KeyDTO.of(key), ValueDTO.of(properties.get(key)));
 
-            if ( service.get(KeyDTO.of(key)) == null ) {
-                service.create(property);
+            if ( resource.get(KeyDTO.of(key)) == null ) {
+                resource.create(property);
             } else {
-                service.update(property);
+                resource.update(property);
             }
         }
 
-        for ( Property property : service.getAllFromDatabase() ) {
+        for ( Property property : resource.getAllFromDatabase() ) {
             System.out.println(property.getKey().toStringValue() + "=" + property.getValue().toStringValue());
         }
     }
@@ -77,7 +76,7 @@ public class AcceptanceTestSteps {
 
         Property property = PropertyEntity.of(KeyDTO.of(key), ValueDTO.of(value));
 
-        service.update(property);
+        resource.update(property);
     }
 
     @Then("^this application should get (.+)$")
@@ -89,7 +88,7 @@ public class AcceptanceTestSteps {
     @When("^a service client refreshes property (.+)$")
     public void a_service_client_refreshes_key_key_with_value_value(String key) throws Exception {
 
-        service.refresh(KeyDTO.of(key));
+        resource.refresh(KeyDTO.of(key));
     }
 
     @Then("^following key-value properties should exist in a database table$")
@@ -98,7 +97,7 @@ public class AcceptanceTestSteps {
         Map<String, String> properties = dataTable.asMap(String.class, String.class);
 
         for ( String key : properties.keySet()) {
-            Property actual = service.get(KeyDTO.of(key));
+            Property actual = resource.get(KeyDTO.of(key));
             assertNotNull("Property " + key + " is not present in table.", actual);
 
             assertEquals(properties.get(key), actual.getValue().toStringValue());

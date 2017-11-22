@@ -11,8 +11,6 @@
     <modules>
         <module>spring-environment-service</module>
         <module>spring-environment-ui</module>
-        <module>spring-environment-resource</module>
-        <module>spring-environment-infrastructure</module>
     </modules>
 
     <properties>

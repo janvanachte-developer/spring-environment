@@ -1,16 +1,16 @@
-package net.javayum.spring.environment.property.property.infrastructure.persistence.jpa;
+package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
 
-import net.javayum.spring.environment.property.property.infrastructure.persistence.PersistenceConfiguration;
-import net.javayum.spring.environment.property.property.model.Key;
-import net.javayum.spring.environment.property.property.model.Property;
-import net.javayum.spring.environment.property.property.model.Value;
-import net.javayum.spring.environment.property.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.model.Key;
+import net.javayum.spring.environment.property.model.Value;
+import net.javayum.spring.environment.property.model.dto.KeyDTO;
+import net.javayum.spring.environment.property.repository.PropertyRepositoryConfiguration;
+import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.model.dto.ValueDTO;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = PersistenceConfiguration.TABLE_NAME_PROPERTIES)
+@Table(name = PropertyRepositoryConfiguration.TABLE_NAME_PROPERTIES)
 public class PropertyEntity implements Property {
 
     private static final String COLUMN_NAME_KEY = "KEY";

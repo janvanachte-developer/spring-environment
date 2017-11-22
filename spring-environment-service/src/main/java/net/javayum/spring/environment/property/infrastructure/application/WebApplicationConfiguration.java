@@ -1,10 +1,10 @@
 package net.javayum.spring.environment.property.infrastructure.application;
 
-import net.javayum.spring.environment.property.infrastructure.jaxrs.JSONConfiguration;
 import net.javayum.spring.environment.property.infrastructure.jaxrs.CXFConfiguration;
-import net.javayum.spring.environment.property.repository.PropertyRepositoryConfiguration;
 import net.javayum.spring.environment.property.infrastructure.spring.DatabasePropertySourceConfiguration;
+import net.javayum.spring.environment.property.repository.PropertyRepositoryConfiguration;
 import net.javayum.spring.environment.property.resource.PropertyResourceConfiguration;
+import net.javayum.spring.environment.property.infrastructure.jaxrs.JSONConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

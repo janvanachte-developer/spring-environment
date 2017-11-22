@@ -1,6 +1,7 @@
-package net.javayum.spring.environment.property.property.service;
+package net.javayum.spring.environment.property;
 
-import net.javayum.spring.environment.property.service.rs.PropertyServiceJAXRS;
+import net.javayum.spring.environment.property.resource.PropertyResource;
+import net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.extension.rest.client.ArquillianResteasyResource;
@@ -45,7 +46,7 @@ public class DeploymentTest {
     public void get_all_properties(@ArquillianResteasyResource("") final WebTarget webTarget) {
 
         final Response response = webTarget
-                .path(PropertyServiceJAXRS.CONTEXT_ROOT + PropertyServiceJAXRS.PATH)
+                .path(PropertyResourceJAXRS.SERVICE_NAME + PropertyResourceJAXRS.PATH)
                 .request(MediaType.APPLICATION_JSON)
                 .get();
 

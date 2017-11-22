@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.property.service;
+package net.javayum.spring.environment.property;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

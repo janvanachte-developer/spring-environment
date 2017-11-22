@@ -1,11 +1,11 @@
 package net.javayum.spring.environment.property.resource.rs;
 
+import net.javayum.spring.environment.property.model.Key;
+import net.javayum.spring.environment.property.repository.PropertyRepository;
 import net.javayum.spring.environment.property.infrastructure.spring.DatabasePropertySourceConfiguration;
 import net.javayum.spring.environment.property.infrastructure.spring.UpdateablePropertiesPropertySource;
-import net.javayum.spring.environment.property.model.Key;
 import net.javayum.spring.environment.property.model.Property;
 import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.repository.PropertyRepository;
 import net.javayum.spring.environment.property.resource.PropertyResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -26,7 +26,7 @@ import static net.javayum.spring.environment.property.resource.rs.PropertyResour
 public class PropertyResourceJAXRS implements PropertyResource {
 
     public static final String PATH = "/properties";
-    public static final String SERVICE_NAME = "property";
+    public static final String SERVICE_NAME = "net/javayum/spring/environment/property";
 
     @Autowired
     private PropertyRepository repository;
