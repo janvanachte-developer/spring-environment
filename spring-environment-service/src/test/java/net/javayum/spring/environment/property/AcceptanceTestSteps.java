@@ -38,9 +38,9 @@ public class AcceptanceTestSteps {
 
         for ( String key : properties.keySet()) {
 
-            Property property = PropertyEntity.of(KeyDTO.of(key), ValueDTO.of(properties.get(key)));
+            Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.of(properties.get(key)));
 
-            if ( resource.get(KeyDTO.of(key)) == null ) {
+            if ( resource.get(KeyDTO.createFrom(key)) == null ) {
                 resource.create(property);
             } else {
                 resource.update(property);
@@ -74,7 +74,7 @@ public class AcceptanceTestSteps {
     @When("^a service client updates property (.+) with (.+)$")
     public void service_update(String key, String value) throws Throwable {
 
-        Property property = PropertyEntity.of(KeyDTO.of(key), ValueDTO.of(value));
+        Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.of(value));
 
         resource.update(property);
     }
@@ -88,7 +88,7 @@ public class AcceptanceTestSteps {
     @When("^a service client refreshes property (.+)$")
     public void a_service_client_refreshes_key_key_with_value_value(String key) throws Exception {
 
-        resource.refresh(KeyDTO.of(key));
+        resource.refresh(KeyDTO.createFrom(key));
     }
 
     @Then("^following key-value properties should exist in a database table$")
@@ -97,7 +97,7 @@ public class AcceptanceTestSteps {
         Map<String, String> properties = dataTable.asMap(String.class, String.class);
 
         for ( String key : properties.keySet()) {
-            Property actual = resource.get(KeyDTO.of(key));
+            Property actual = resource.get(KeyDTO.createFrom(key));
             assertNotNull("Property " + key + " is not present in table.", actual);
 
             assertEquals(properties.get(key), actual.getValue().toStringValue());

@@ -13,12 +13,12 @@ public class KeyDTO implements Key, Serializable {
         this.key = key;
     }
 
-    public static Key of(String key) {
-        return new KeyDTO(key);
-    }
-
     @JsonGetter("stringValue")
     public String toStringValue() {
         return key;
+    }
+
+    public static Key createFrom(String key) {
+        return new KeyDTO(key);
     }
 }

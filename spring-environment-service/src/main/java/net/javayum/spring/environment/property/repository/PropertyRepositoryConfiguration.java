@@ -28,7 +28,7 @@ public class PropertyRepositoryConfiguration {
     @Bean
     public DataSource dataSource() {
 
-        // no need to shutdown, EmbeddedDatabaseFactoryBean will take care of this
+        // no need to shutdown, EmbeddedDatabaseFactoryBean will take care createFrom this
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase dataSource = builder
                 .setType(EmbeddedDatabaseType.H2)

@@ -31,7 +31,7 @@ public class PropertyEntity implements Property {
 
     @Transient
     public Key getKey() {
-        return KeyDTO.of(key);
+        return KeyDTO.createFrom(key);
     }
 
     @Transient

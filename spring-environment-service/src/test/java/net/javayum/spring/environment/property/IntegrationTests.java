@@ -16,7 +16,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import net.javayum.spring.environment.property.model.Property;
 import net.javayum.spring.environment.property.resource.PropertyResource;
-import net.javayum.spring.environment.property.resource.PropertyResourceConfiguration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -42,7 +41,7 @@ public class IntegrationTests {
     @Test
     public void service_client_calls_method_create() throws Throwable {
 
-        Key key = KeyDTO.of("key10");
+        Key key = KeyDTO.createFrom("key10");
         Value value = ValueDTO.of("value4");
         Property property = resource.create(PropertyEntity.of(key, value));
 
