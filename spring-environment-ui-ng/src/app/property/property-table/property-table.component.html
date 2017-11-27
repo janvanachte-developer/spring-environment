@@ -1,0 +1,11 @@
+<p>
+  property-table works!
+</p>
+<div class="mdl-grid">
+  <ng-container *ngFor="let property of data" class="mdl-cell mdl-cell--4-col">
+    <div>Key: {{property.key.stringValue}}</div>
+    <div>Value: {{property.value.stringValue}}</div>
+  </ng-container>
+</div>
+
+<app-property-detail></app-property-detail>

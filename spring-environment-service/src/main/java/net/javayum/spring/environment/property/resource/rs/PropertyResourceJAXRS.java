@@ -20,6 +20,8 @@ import java.util.List;
 
 import static net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS.SERVICE_NAME;
 
+// local tomcat: http://localhost:8080/cxfservlet/properties/
+
 //@Api(value = "customers", description = "RESTful API to interact with customer resources.")
 @Service(SERVICE_NAME)
 @Transactional
