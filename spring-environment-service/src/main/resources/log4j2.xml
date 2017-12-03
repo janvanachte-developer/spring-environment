@@ -11,10 +11,13 @@
 	</Appenders>
 
 	<Loggers>
-		<Logger name="eu" level="debug">
+		<Logger name="net.javayum" level="debug">
 		</Logger>
 
 		<Logger name="org.springframework" level="debug">
+		</Logger>
+
+		<Logger name="org.apache.cxf" level="debug">
 		</Logger>
 
 		<Root level="info">

@@ -17,8 +17,12 @@ import javax.ws.rs.core.Application;
         DatabasePropertySourceConfiguration.class,
         PropertyRepositoryConfiguration.class,
         PropertyResourceConfiguration.class,
+
+        JSONConfiguration.class,
+
+        // http://localhost:8080/cxfservlet/properties
         CXFConfiguration.class,
-        JSONConfiguration.class
+
 })
 public class WebApplicationConfiguration {
 

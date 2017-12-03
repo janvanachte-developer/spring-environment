@@ -20,6 +20,7 @@
         <junit.version>4.12</junit.version>
         <cucumber.version>2.1.0</cucumber.version>
         <maven.compiler.version>3.3</maven.compiler.version>
+        <io.swagger.version>1.5.17</io.swagger.version>
     </properties>
 
     <dependencies>
