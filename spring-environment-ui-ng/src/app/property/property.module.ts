@@ -10,6 +10,9 @@ import { PropertyResourceComponent } from './property-resource/property-resource
   imports: [
     CommonModule
   ],
+  providers: [
+    PropertyResourceComponent
+  ],
   exports: [
     PropertyViewComponent
   ],

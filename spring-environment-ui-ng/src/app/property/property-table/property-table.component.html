@@ -1,11 +1,19 @@
-<p>
-  property-table works!
-</p>
-<div class="mdl-grid">
-  <ng-container *ngFor="let property of data" class="mdl-cell mdl-cell--4-col">
-    <div>Key: {{property.key.stringValue}}</div>
-    <div>Value: {{property.value.stringValue}}</div>
-  </ng-container>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="row" *ngFor="let property of propertyData" (click)="rowClick(property)" >
+    <td>{{property.key.stringValue}}</td>
+    <td>{{property.value.stringValue}}</td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="edited">
+  <app-property-detail></app-property-detail>
 </div>
 
-<app-property-detail></app-property-detail>
