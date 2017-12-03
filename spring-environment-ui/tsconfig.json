@@ -7,7 +7,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "removeComments": false,
     "target": "es5",
+    "outDir": "target/angular/app",
     "typeRoots": [
       "node_modules/@types"
     ],
