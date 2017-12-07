@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.infrastructure.spring;
+package net.javayum.spring.environment.property.service.spring;
 
 import net.javayum.spring.environment.property.repository.PropertyRepository;
 import net.javayum.spring.environment.property.model.Property;

@@ -42,7 +42,7 @@ public class IntegrationTests {
     public void service_client_calls_method_create() throws Throwable {
 
         Key key = KeyDTO.createFrom("key10");
-        Value value = ValueDTO.of("value4");
+        Value value = ValueDTO.createFrom("value4");
         Property property = resource.create(PropertyEntity.of(key, value));
 
         Property actual = resource.get(key);
@@ -53,7 +53,7 @@ public class IntegrationTests {
     @Test
     public void service_client_calls_method_update() throws Throwable {
 
-        Value value = ValueDTO.of("value5");
+        Value value = ValueDTO.createFrom("value5");
         Property property = PropertyEntity.of(TestData.KEY, value);
 
         resource.update(property);

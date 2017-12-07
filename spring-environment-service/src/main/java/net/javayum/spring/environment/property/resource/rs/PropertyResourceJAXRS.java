@@ -2,8 +2,6 @@ package net.javayum.spring.environment.property.resource.rs;
 
 import net.javayum.spring.environment.property.model.Key;
 import net.javayum.spring.environment.property.repository.PropertyRepository;
-import net.javayum.spring.environment.property.infrastructure.spring.DatabasePropertySourceConfiguration;
-import net.javayum.spring.environment.property.infrastructure.spring.UpdateablePropertiesPropertySource;
 import net.javayum.spring.environment.property.model.Property;
 import net.javayum.spring.environment.property.model.dto.KeyDTO;
 import net.javayum.spring.environment.property.resource.PropertyResource;
@@ -47,7 +45,7 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @Path(PATH + "/{key}")
     @Produces(MediaType.APPLICATION_JSON)
     public Property get(@PathParam("key") String key) {
-        return repository.findOne(KeyDTO.createFrom(key));
+        return PropertyJSON.createFrom(repository.findOne(KeyDTO.createFrom(key)));
     }
 
     @Override
@@ -70,7 +68,7 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public List<Property> getAllFromDatabase() {
-        return repository.findAll();
+        return PropertyJSON.createFrom(repository.findAll());
     }
 
     @Override
@@ -78,13 +76,4 @@ public class PropertyResourceJAXRS implements PropertyResource {
         return null;
     }
 
-    @Override
-    public void refresh(Key key) {
-        Property property = repository.findOne(key);
-
-        MutablePropertySources propertySources = ((ConfigurableEnvironment) environment).getPropertySources();
-
-        UpdateablePropertiesPropertySource propertySource = (UpdateablePropertiesPropertySource) propertySources.get(DatabasePropertySourceConfiguration.DB_PROPERTY_SOURCE);
-        propertySource.update(property.getKey().toStringValue(), property.getValue().toStringValue());
-    }
 }

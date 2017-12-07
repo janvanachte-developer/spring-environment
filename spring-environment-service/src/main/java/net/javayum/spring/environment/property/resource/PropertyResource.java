@@ -18,6 +18,4 @@ public interface PropertyResource {
     List<Property> getAllFromDatabase();
 
     List<Property> search(String query);
-
-    void refresh(Key key);
 }

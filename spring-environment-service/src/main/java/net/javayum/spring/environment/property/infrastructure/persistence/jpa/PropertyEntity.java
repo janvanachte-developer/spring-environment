@@ -3,7 +3,6 @@ package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
 import net.javayum.spring.environment.property.model.Key;
 import net.javayum.spring.environment.property.model.Value;
 import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.repository.PropertyRepositoryConfiguration;
 import net.javayum.spring.environment.property.model.Property;
 import net.javayum.spring.environment.property.model.dto.ValueDTO;
 
@@ -36,7 +35,7 @@ public class PropertyEntity implements Property {
 
     @Transient
     public Value getValue() {
-        return ValueDTO.of(value);
+        return ValueDTO.createFrom(value);
     }
 
     @Override

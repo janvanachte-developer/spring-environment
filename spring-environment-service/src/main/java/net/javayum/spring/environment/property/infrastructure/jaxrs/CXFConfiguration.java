@@ -39,18 +39,19 @@ public class CXFConfiguration {
     @DependsOn("cxf")
     @Autowired
     public Server jaxRsServer(ApplicationContext appContext, PropertyResource propertyResource, JacksonJsonProvider jsonProvider, WebApplicationConfiguration.JaxRsApiApplication jaxRsApiApplication) {
-        JAXRSServerFactoryBean jaxrsServerFactoryBean = RuntimeDelegate.getInstance().createEndpoint(jaxRsApiApplication, JAXRSServerFactoryBean.class);
-        jaxrsServerFactoryBean.setServiceBeans(Arrays.<Object>asList(propertyResource));
-        jaxrsServerFactoryBean.setAddress("/" + jaxrsServerFactoryBean.getAddress());
-        jaxrsServerFactoryBean.setProvider(jsonProvider);
+
+        JAXRSServerFactoryBean serverFactoryBean = RuntimeDelegate.getInstance().createEndpoint(jaxRsApiApplication, JAXRSServerFactoryBean.class);
+        serverFactoryBean.setServiceBeans(Arrays.<Object>asList(propertyResource));
+        serverFactoryBean.setAddress("/" + serverFactoryBean.getAddress());
+        serverFactoryBean.setProvider(jsonProvider);
 
         // http://cxf.apache.org/docs/swagger2feature.html
         Swagger2Feature feature = new Swagger2Feature();
         feature.setBasePath(WebApplicationInitializerCXF.URL_CXFSERVLET);
         feature.setSupportSwaggerUi(true);
         feature.setBasePath("net.javayum.spring.environment.property");
-        jaxrsServerFactoryBean.getFeatures().add(feature);
+        serverFactoryBean.getFeatures().add(feature);
 
-        return jaxrsServerFactoryBean.create();
+        return serverFactoryBean.create();
     }
 }

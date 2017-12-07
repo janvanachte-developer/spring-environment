@@ -13,7 +13,7 @@ public class ValueDTO implements Value, Serializable {
         this.value = value;
     }
 
-    public static Value of(String value) {
+    public static Value createFrom(String value) {
         return new ValueDTO(value);
     }
 

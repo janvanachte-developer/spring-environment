@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.infrastructure.spring;
+package net.javayum.spring.environment.property.service.spring;
 
 import org.springframework.core.env.PropertiesPropertySource;
 

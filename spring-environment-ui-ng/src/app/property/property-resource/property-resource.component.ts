@@ -1,4 +1,3 @@
-import {Property} from '../property-table/property-table.component';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Component, OnInit } from '@angular/core';

@@ -10,6 +10,6 @@ import net.javayum.spring.environment.property.model.dto.ValueDTO;
 public class TestData {
 
     public static final Key KEY = KeyDTO.createFrom("key1");
-    public static final Value VALUE = ValueDTO.of("value1");
+    public static final Value VALUE = ValueDTO.createFrom("value1");
     public static final Property PROPERTY = PropertyEntity.of(KEY, VALUE);
 }

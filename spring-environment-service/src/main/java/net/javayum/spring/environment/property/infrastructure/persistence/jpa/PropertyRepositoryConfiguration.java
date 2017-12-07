@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.repository;
+package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
 
 import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyRepositorySpringData;
 import org.springframework.context.annotation.Bean;

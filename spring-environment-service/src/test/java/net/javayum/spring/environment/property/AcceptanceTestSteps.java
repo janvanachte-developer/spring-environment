@@ -10,6 +10,7 @@ import net.javayum.spring.environment.property.model.dto.KeyDTO;
 import net.javayum.spring.environment.property.model.dto.ValueDTO;
 import net.javayum.spring.environment.property.resource.PropertyResource;
 import net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS;
+import net.javayum.spring.environment.property.service.SynchronizeEnvironmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -29,6 +30,9 @@ public class AcceptanceTestSteps {
     @Qualifier(PropertyResourceJAXRS.SERVICE_NAME)
     private PropertyResource resource;
 
+    @Autowired
+    private SynchronizeEnvironmentService service;
+
     private String key;
 
     @Given("^following key-value properties exist in a database table$")
@@ -38,7 +42,7 @@ public class AcceptanceTestSteps {
 
         for ( String key : properties.keySet()) {
 
-            Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.of(properties.get(key)));
+            Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.createFrom(properties.get(key)));
 
             if ( resource.get(KeyDTO.createFrom(key)) == null ) {
                 resource.create(property);
@@ -74,7 +78,7 @@ public class AcceptanceTestSteps {
     @When("^a service client updates property (.+) with (.+)$")
     public void service_update(String key, String value) throws Throwable {
 
-        Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.of(value));
+        Property property = PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.createFrom(value));
 
         resource.update(property);
     }
@@ -88,7 +92,7 @@ public class AcceptanceTestSteps {
     @When("^a service client refreshes property (.+)$")
     public void a_service_client_refreshes_key_key_with_value_value(String key) throws Exception {
 
-        resource.refresh(KeyDTO.createFrom(key));
+        service.synchronize(PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.createFrom("value")));
     }
 
     @Then("^following key-value properties should exist in a database table$")
