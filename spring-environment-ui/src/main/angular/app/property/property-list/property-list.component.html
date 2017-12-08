@@ -1,0 +1,33 @@
+<div>
+  <mat-table #table [dataSource] = "dataSource">
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <ng-container matColumnDef="key">
+      <mat-header-cell *matHeaderCellDef>Property</mat-header-cell>
+      <mat-cell *matCellDef="let property"> {{property.key}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+      <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+      <mat-cell *matCellDef="let property"> {{property.value}} </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>
+
+<!--<table class="table table-hover">-->
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th></th>-->
+    <!--<th>Name</th>-->
+    <!--<th>Value</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr class="row" *ngFor="let property of dataSource" (dblclick)="rowDblClick(property)" >-->
+    <!--<td>{{property.key}}</td>-->
+    <!--<td>{{property.value}}</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
