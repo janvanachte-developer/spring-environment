@@ -1,0 +1,14 @@
+<div>
+  <mat-toolbar color="primary">{{title}}</mat-toolbar>
+  <mat-list>
+    <a mat-list-item
+       *ngFor="let property of properties$ | async; trackBy:trackByPropertyKey"
+       title="View {{property.key}} details">
+
+      <h3 mat-line>{{property.key}}</h3>
+    </a>
+    <!--<a mat-fab routerLink="contact/new" title="Add a new contact" class="trm-floating-button">-->
+      <!--<mat-icon class="md-24">add</mat-icon>-->
+    <!--</a>-->
+  </mat-list>
+</div>
