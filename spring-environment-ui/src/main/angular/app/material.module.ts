@@ -11,6 +11,7 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatRadioModule,
+  MatTableModule,
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
@@ -27,6 +28,7 @@ import {
     MatRadioModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTableModule,
     MatTabsModule,
     MatToolbarModule
   ]

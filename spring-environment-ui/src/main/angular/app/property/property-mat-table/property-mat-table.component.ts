@@ -6,11 +6,13 @@ import { MatTable, MatTableDataSource } from "@angular/material";
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-property-list',
-  templateUrl: './property-list.component.html',
-  styleUrls: ['./property-list.component.css']
+  selector: 'app-property-mat-table',
+  templateUrl: './property-mat-table.component.html',
+  styleUrls: ['./property-mat-table.component.css']
 })
-export class PropertyListComponent implements OnInit {
+export class PropertyTableComponent implements OnInit {
+
+  title = 'Properties (Material Table)  ';
 
   displayedColumns = ['key', 'value'];
   dataSource;

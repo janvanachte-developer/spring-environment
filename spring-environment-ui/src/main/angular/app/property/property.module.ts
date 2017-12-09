@@ -1,6 +1,9 @@
 import { PropertyResource } from './property.resource';
+import {PropertyService} from "./property.service";
 import { PropertyComponent} from "./property.component"
-import { PropertyListComponent } from './property-list/property-list.component';
+import { PropertyTableComponent } from './property-mat-table/property-mat-table.component';
+import { PropertyListComponent as PropertyListComponent_Material_Observables } from "./property-list-material-with-observable/property-list.component"
+import { PropertyEditorComponent } from "./property-editor-mat-card-with-observable/property-editor.component"
 
 import { APP_ROUTES } from './property.routes';
 import { API_ENDPOINT } from './property.tokens';
@@ -8,29 +11,38 @@ import { API_ENDPOINT } from './property.tokens';
 import { environment } from '../environment';
 
 import { MaterialModule} from "../material.module";
-import { MatTableModule } from "@angular/material";
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import { HttpModule } from '@angular/http';
-//import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [
+
+    RouterModule.forRoot(APP_ROUTES),
+
     MaterialModule,
-    MatTableModule,
+    FormsModule,
+    BrowserAnimationsModule,
 
     HttpModule,
-    //HttpClientModule,
+    HttpClientModule,
     CommonModule,
   ],
   declarations: [
     PropertyComponent,
-    PropertyListComponent
+    PropertyTableComponent,
+    PropertyListComponent_Material_Observables,
+
+    PropertyEditorComponent
   ],
   providers: [
-    PropertyResource,
+    PropertyResource, PropertyService,
     { provide: API_ENDPOINT, useValue: environment.apiEndpoint }
 
   ],

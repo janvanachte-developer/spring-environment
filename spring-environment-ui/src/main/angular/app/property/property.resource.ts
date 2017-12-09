@@ -34,6 +34,12 @@ export class PropertyResource implements OnInit {
     })
   }
 
+  // getProperty(key: string): Observable<Property> {
+  //   return this.httpClient.get<PropertyResponse>(`${this.apiEndpoint}/properties/${key}`)
+  //     .pipe(map(data => data.item));
+  // }
+
+
   public getData() {
     return this.http.get(this.url).map((response: Response) => response.json());
   }

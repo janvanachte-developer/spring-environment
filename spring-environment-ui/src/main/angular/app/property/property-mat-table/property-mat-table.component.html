@@ -1,4 +1,6 @@
 <div>
+  <mat-toolbar color="primary">{{title}}</mat-toolbar>
+
   <mat-table #table [dataSource] = "dataSource">
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -6,7 +8,9 @@
 
     <ng-container matColumnDef="key">
       <mat-header-cell *matHeaderCellDef>Property</mat-header-cell>
-      <mat-cell *matCellDef="let property"> {{property.key}} </mat-cell>
+      <mat-cell *matCellDef="let property">
+        <a [routerLink]="['/properties', property.key]">{{property.key}}</a>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="value">
@@ -15,19 +19,3 @@
     </ng-container>
   </mat-table>
 </div>
-
-<!--<table class="table table-hover">-->
-  <!--<thead>-->
-  <!--<tr>-->
-    <!--<th></th>-->
-    <!--<th>Name</th>-->
-    <!--<th>Value</th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-  <!--<tbody>-->
-  <!--<tr class="row" *ngFor="let property of dataSource" (dblclick)="rowDblClick(property)" >-->
-    <!--<td>{{property.key}}</td>-->
-    <!--<td>{{property.value}}</td>-->
-  <!--</tr>-->
-  <!--</tbody>-->
-<!--</table>-->
