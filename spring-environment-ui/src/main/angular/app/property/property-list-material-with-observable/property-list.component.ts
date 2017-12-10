@@ -4,7 +4,7 @@ import { PropertyResource } from '../property.resource';
 import { MatTable, MatTableDataSource } from "@angular/material";
 
 import { Component, OnInit } from '@angular/core';
-import {PropertyService} from "../property.service";
+import {PropertyResourceUsingObservables} from "../property.service";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -22,7 +22,7 @@ export class PropertyListComponent implements OnInit {
   dataSource;
   private properties$: Observable<Array<Property>>;
 
-  constructor( private propertyResource: PropertyService ) {
+  constructor( private propertyResource: PropertyResourceUsingObservables ) {
   }
 
   ngOnInit() {

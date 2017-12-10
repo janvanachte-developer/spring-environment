@@ -44,13 +44,21 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @GET
     @Path(PATH + "/{key}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Property get(@PathParam("key") String key) {
+    public Property getJSON(@PathParam("key") String key) {
         return PropertyJSON.createFrom(repository.findOne(KeyDTO.createFrom(key)));
     }
 
     @Override
     public Property get(Key key) {
         return repository.findOne(key);
+    }
+
+    @PUT
+    @Path(PATH + "/{key}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Property putJSON(PropertyJSON property, @PathParam("key") String key) {
+        return PropertyJSON.createFrom(repository.save(property));
     }
 
     @Override

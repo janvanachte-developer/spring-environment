@@ -3,13 +3,13 @@
 
   <mat-card>
     <mat-card-title-group class="fullBleed editing">
-      <mat-card-title>{{property?.key}}</mat-card-title>
+      <mat-card-title>Property {{property?.key}}</mat-card-title>
     </mat-card-title-group>
     <mat-card-content>
       <div fxLayout="column">
-        <mat-input-container fxFlex>
-          <input matInput placeholder="Property" name="key" [(ngModel)]="property.key">
-        </mat-input-container>
+        <!--<mat-input-container fxFlex>-->
+          <!--<input matInput placeholder="Property" name="key" [(ngModel)]="property.key">-->
+        <!--</mat-input-container>-->
         <mat-input-container fxFlex>
           <input matInput placeholder="Value" name="value" [(ngModel)]="property.value">
         </mat-input-container>

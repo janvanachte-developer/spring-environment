@@ -1,5 +1,5 @@
 import { PropertyResource } from './property.resource';
-import {PropertyService} from "./property.service";
+import {PropertyResourceUsingObservables} from "./property.service";
 import { PropertyComponent} from "./property.component"
 import { PropertyTableComponent } from './property-mat-table/property-mat-table.component';
 import { PropertyListComponent as PropertyListComponent_Material_Observables } from "./property-list-material-with-observable/property-list.component"
@@ -42,7 +42,7 @@ import {RouterModule} from "@angular/router";
     PropertyEditorComponent
   ],
   providers: [
-    PropertyResource, PropertyService,
+    PropertyResource, PropertyResourceUsingObservables,
     { provide: API_ENDPOINT, useValue: environment.apiEndpoint }
 
   ],

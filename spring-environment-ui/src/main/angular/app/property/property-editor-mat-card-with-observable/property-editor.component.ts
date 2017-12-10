@@ -1,7 +1,7 @@
 import { Property } from '../property.model';
 import { PropertyResource } from '../property.resource';
 
-import { PropertyService } from "../property.service";
+import { PropertyResourceUsingObservables } from "../property.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,9 +15,9 @@ export class PropertyEditorComponent implements OnInit {
   title = 'Property (Material Card)';
 
   // we need to initialize since we can't use ?. operator with ngModel
-  property: Property;
+  property: Property = new Property;
 
-  constructor(private propertyResource: PropertyService,
+  constructor(private propertyResource: PropertyResourceUsingObservables,
               private router: Router,
               private route: ActivatedRoute) {}
 
@@ -38,7 +38,7 @@ export class PropertyEditorComponent implements OnInit {
 
   save(property: Property) {
     this.propertyResource.updateProperty(property)
-      .subscribe(() => this.goToDetails(property));
+      .subscribe(() => this.goToOverview(property));
   }
 
   private goToDetails(property: Property) {
