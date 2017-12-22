@@ -1,7 +1,7 @@
-package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
+package net.javayum.spring.environment.property.datasource.jpa;
 
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Property;
 import net.javayum.spring.environment.property.repository.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,6 +36,16 @@ public class PropertyRepositoryJPA implements PropertyRepository {
     @Override
     public Property findOne(Key key) {
         return repository.findOne(key.toStringValue());
+    }
+
+    @Override
+    public Property requireOne(Key key) throws NotFoundException {
+
+        if ( repository.exists(key.toStringValue())) {
+            return findOne(key);
+        } else {
+            throw new NotFoundException(key);
+        }
     }
 
     @Override

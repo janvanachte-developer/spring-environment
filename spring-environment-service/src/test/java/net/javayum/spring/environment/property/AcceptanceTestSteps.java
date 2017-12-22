@@ -4,13 +4,13 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyEntity;
-import net.javayum.spring.environment.property.model.Property;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.datasource.jpa.PropertyEntity;
+import net.javayum.spring.environment.property.domain.Property;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.dto.ValueDTO;
 import net.javayum.spring.environment.property.resource.PropertyResource;
 import net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS;
-import net.javayum.spring.environment.property.service.SynchronizeEnvironmentService;
+import net.javayum.spring.environment.property.service.EnvironmentSynchronizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,7 +31,7 @@ public class AcceptanceTestSteps {
     private PropertyResource resource;
 
     @Autowired
-    private SynchronizeEnvironmentService service;
+    private EnvironmentSynchronizationService service;
 
     private String key;
 
@@ -92,7 +92,7 @@ public class AcceptanceTestSteps {
     @When("^a service client refreshes property (.+)$")
     public void a_service_client_refreshes_key_key_with_value_value(String key) throws Exception {
 
-        service.synchronize(PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.createFrom("value")));
+        service.sync(PropertyEntity.of(KeyDTO.createFrom(key), ValueDTO.createFrom("value")));
     }
 
     @Then("^following key-value properties should exist in a database table$")

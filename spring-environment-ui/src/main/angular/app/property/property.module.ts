@@ -1,5 +1,5 @@
 import { PropertyResource } from './property.resource';
-import {PropertyResourceUsingObservables} from "./property.service";
+import {PropertyResourceUsingObservables} from "./property.resource";
 import { PropertyComponent} from "./property.component"
 import { PropertyTableComponent } from './property-mat-table/property-mat-table.component';
 import { PropertyListComponent as PropertyListComponent_Material_Observables } from "./property-list-material-with-observable/property-list.component"

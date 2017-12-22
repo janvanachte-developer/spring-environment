@@ -2,12 +2,11 @@ package net.javayum.spring.environment.property.resource.rs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Property;
-import net.javayum.spring.environment.property.model.Value;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Property;
+import net.javayum.spring.environment.property.domain.Value;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.dto.ValueDTO;
 
 import java.util.ArrayList;
 import java.util.List;

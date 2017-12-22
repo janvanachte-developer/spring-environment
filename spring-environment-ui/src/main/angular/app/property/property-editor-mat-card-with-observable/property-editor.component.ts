@@ -1,7 +1,7 @@
 import { Property } from '../property.model';
 import { PropertyResource } from '../property.resource';
 
-import { PropertyResourceUsingObservables } from "../property.service";
+import { PropertyResourceUsingObservables } from "../property.resource";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 

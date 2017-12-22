@@ -1,7 +1,7 @@
-package net.javayum.spring.environment.property.model.dto;
+package net.javayum.spring.environment.property.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
-import net.javayum.spring.environment.property.model.Key;
+import net.javayum.spring.environment.property.domain.Key;
 
 import java.io.Serializable;
 

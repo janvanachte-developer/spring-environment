@@ -11,6 +11,8 @@
     <modules>
         <module>spring-environment-service</module>
         <module>spring-environment-ui</module>
+        <module>spring-environment-app-tomcat</module>
+        <module>spring-environment-infrastructure-hazelcast</module>
     </modules>
 
     <properties>
@@ -38,7 +40,26 @@
 
 
     <dependencyManagement>
+
         <dependencies>
+
+            <!-- net.javayum modules -->
+            <dependency>
+                <groupId>net.javayum</groupId>
+                <artifactId>spring-environment-service</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>net.javayum</groupId>
+                <artifactId>spring-environment-ui-ng</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>net.javayum</groupId>
+                <artifactId>spring-environment-infrastructure-hazelcast</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
             <!-- org.springframework -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -87,18 +108,6 @@
                 <version>1.11.4.RELEASE</version>
             </dependency>
 
-
-            <!-- net.javayum modules -->
-            <dependency>
-                <groupId>net.javayum</groupId>
-                <artifactId>spring-environment-service</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>net.javayum</groupId>
-                <artifactId>spring-environment-ui</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 

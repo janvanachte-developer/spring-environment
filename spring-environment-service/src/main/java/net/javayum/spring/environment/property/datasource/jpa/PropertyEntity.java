@@ -1,10 +1,10 @@
-package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
+package net.javayum.spring.environment.property.datasource.jpa;
 
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Value;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.model.Property;
-import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Value;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.Property;
+import net.javayum.spring.environment.property.domain.dto.ValueDTO;
 
 import javax.persistence.*;
 
@@ -22,9 +22,11 @@ public class PropertyEntity implements Property {
     @Column(name = COLUMN_NAME_VALUE)
     private String value;
 
-    protected PropertyEntity(){}
+    protected PropertyEntity(Key key, Value value){this.key = key.toStringValue(); this.value = value.toStringValue();}
 
     private PropertyEntity(String key, String value){this.key = key; this.value = value;}
+
+    private PropertyEntity(){};
 
     public static PropertyEntity of(Key key, Value value) { return new PropertyEntity(key.toStringValue(), value.toStringValue());}
 

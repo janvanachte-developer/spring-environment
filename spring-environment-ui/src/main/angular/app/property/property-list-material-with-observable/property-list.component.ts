@@ -4,7 +4,7 @@ import { PropertyResource } from '../property.resource';
 import { MatTable, MatTableDataSource } from "@angular/material";
 
 import { Component, OnInit } from '@angular/core';
-import {PropertyResourceUsingObservables} from "../property.service";
+import {PropertyResourceUsingObservables} from "../property.resource";
 import {Observable} from "rxjs/Observable";
 
 @Component({

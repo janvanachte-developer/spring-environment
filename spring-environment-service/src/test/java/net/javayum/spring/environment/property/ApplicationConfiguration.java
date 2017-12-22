@@ -1,7 +1,7 @@
 package net.javayum.spring.environment.property;
 
 import net.javayum.spring.environment.property.service.spring.DatabasePropertySourceConfiguration;
-import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyRepositoryConfiguration;
+import net.javayum.spring.environment.property.datasource.jpa.PropertyRepositoryConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

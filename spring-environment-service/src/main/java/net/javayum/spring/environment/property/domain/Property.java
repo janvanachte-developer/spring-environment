@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.model;
+package net.javayum.spring.environment.property.domain;
 
 public interface Property {
 

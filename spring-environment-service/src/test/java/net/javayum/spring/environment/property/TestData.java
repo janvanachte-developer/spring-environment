@@ -1,11 +1,11 @@
 package net.javayum.spring.environment.property;
 
-import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyEntity;
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Property;
-import net.javayum.spring.environment.property.model.Value;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.datasource.jpa.PropertyEntity;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Property;
+import net.javayum.spring.environment.property.domain.Value;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.dto.ValueDTO;
 
 public class TestData {
 

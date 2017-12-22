@@ -1,11 +1,11 @@
 package net.javayum.spring.environment.property;
 
 import net.javayum.spring.environment.property.infrastructure.application.WebApplicationConfiguration;
-import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyEntity;
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Value;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
-import net.javayum.spring.environment.property.model.dto.ValueDTO;
+import net.javayum.spring.environment.property.datasource.jpa.PropertyEntity;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Value;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.dto.ValueDTO;
 import net.javayum.spring.environment.property.resource.rs.PropertyResourceJAXRS;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.domain.Property;
 import net.javayum.spring.environment.property.resource.PropertyResource;
 
 import static org.junit.Assert.assertEquals;

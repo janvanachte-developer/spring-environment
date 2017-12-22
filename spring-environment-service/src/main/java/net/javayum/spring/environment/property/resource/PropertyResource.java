@@ -1,7 +1,7 @@
 package net.javayum.spring.environment.property.resource;
 
-import net.javayum.spring.environment.property.model.Key;
-import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.domain.Key;
+import net.javayum.spring.environment.property.domain.Property;
 
 import java.util.List;
 

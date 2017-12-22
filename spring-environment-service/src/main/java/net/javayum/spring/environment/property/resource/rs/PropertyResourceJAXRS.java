@@ -1,14 +1,13 @@
 package net.javayum.spring.environment.property.resource.rs;
 
-import net.javayum.spring.environment.property.model.Key;
+import net.javayum.spring.environment.property.domain.Key;
 import net.javayum.spring.environment.property.repository.PropertyRepository;
-import net.javayum.spring.environment.property.model.Property;
-import net.javayum.spring.environment.property.model.dto.KeyDTO;
+import net.javayum.spring.environment.property.domain.Property;
+import net.javayum.spring.environment.property.domain.dto.KeyDTO;
 import net.javayum.spring.environment.property.resource.PropertyResource;
+import net.javayum.spring.environment.property.service.EnvironmentSynchronizationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
-import org.springframework.core.env.MutablePropertySources;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,8 +30,8 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @Autowired
     private PropertyRepository repository;
 
-    @Autowired
-    private Environment environment;
+    //@Autowired
+    private EnvironmentSynchronizationService service;
 
     public PropertyResourceJAXRS() {}
 
@@ -45,7 +44,7 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @Path(PATH + "/{key}")
     @Produces(MediaType.APPLICATION_JSON)
     public Property getJSON(@PathParam("key") String key) {
-        return PropertyJSON.createFrom(repository.findOne(KeyDTO.createFrom(key)));
+        return PropertyJSON.createFrom(get(KeyDTO.createFrom(key)));
     }
 
     @Override
@@ -58,12 +57,12 @@ public class PropertyResourceJAXRS implements PropertyResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Property putJSON(PropertyJSON property, @PathParam("key") String key) {
-        return PropertyJSON.createFrom(repository.save(property));
+        return PropertyJSON.createFrom(update(property));
     }
 
     @Override
     public Property update(Property property) {
-        return repository.save(property);
+        return service.sync(repository.save(property));
     }
 
     @Override

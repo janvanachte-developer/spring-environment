@@ -1,4 +1,4 @@
-package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
+package net.javayum.spring.environment.property.datasource.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

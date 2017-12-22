@@ -1,7 +1,7 @@
 package net.javayum.spring.environment.property.service.spring;
 
 import net.javayum.spring.environment.property.repository.PropertyRepository;
-import net.javayum.spring.environment.property.model.Property;
+import net.javayum.spring.environment.property.domain.Property;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

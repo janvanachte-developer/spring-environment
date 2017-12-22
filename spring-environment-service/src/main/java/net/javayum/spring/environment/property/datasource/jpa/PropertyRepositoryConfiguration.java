@@ -1,6 +1,5 @@
-package net.javayum.spring.environment.property.infrastructure.persistence.jpa;
+package net.javayum.spring.environment.property.datasource.jpa;
 
-import net.javayum.spring.environment.property.infrastructure.persistence.jpa.PropertyRepositorySpringData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +19,11 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackageClasses = {PropertyRepositorySpringData.class})
-@ComponentScan("net.javayum.spring.environment.property.infrastructure.persistence.jpa")
+@ComponentScan(
+        basePackageClasses = {
+                PropertyRepositoryJPA.class
+        }
+)
 public class PropertyRepositoryConfiguration {
 
     public final static String TABLE_NAME_PROPERTIES = "PROPERTIES";
@@ -43,7 +46,7 @@ public class PropertyRepositoryConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "net.javayum.spring.environment.property.infrastructure.persistence.jpa" });
+        em.setPackagesToScan(new String[] { "net.javayum.spring.environment.property.datasource.jpa" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
