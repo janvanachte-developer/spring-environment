@@ -12,7 +12,6 @@
         <module>spring-environment-service</module>
         <module>spring-environment-ui</module>
         <module>spring-environment-app-tomcat</module>
-        <module>spring-environment-infrastructure-hazelcast</module>
     </modules>
 
     <properties>

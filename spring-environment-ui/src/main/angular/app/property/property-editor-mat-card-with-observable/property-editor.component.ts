@@ -32,14 +32,19 @@ export class PropertyEditorComponent implements OnInit {
         });
   }
 
-  cancel(property: Property) {
-    this.goToOverview(property);
-  }
-
   save(property: Property) {
     this.propertyResource.updateProperty(property)
       .subscribe(() => this.goToOverview(property));
   }
+
+  cancel(property: Property) {
+    this.goToOverview(property);
+  }
+
+  ok(property: Property) {
+    this.goToOverview(property);
+  }
+
 
   private goToDetails(property: Property) {
     this.router.navigate(['/properties', property.key ]);
