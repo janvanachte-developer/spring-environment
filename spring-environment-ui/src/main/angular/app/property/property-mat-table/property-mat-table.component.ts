@@ -1,5 +1,5 @@
 import { Property } from '../property.model';
-import { PropertyResource } from '../property.resource';
+import { PropertyService } from '../property.service';
 
 import { MatTable, MatTableDataSource } from "@angular/material";
 
@@ -19,7 +19,7 @@ export class PropertyTableComponent implements OnInit {
 
   propertySelected: Property;
 
-  constructor( propertyResource: PropertyResource ) {
+  constructor( propertyResource: PropertyService ) {
     propertyResource.getData().subscribe(data => {
       this.dataSource = new MatTableDataSource<Property>(data);
     })

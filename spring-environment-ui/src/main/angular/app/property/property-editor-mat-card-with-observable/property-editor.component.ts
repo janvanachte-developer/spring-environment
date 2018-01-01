@@ -1,7 +1,7 @@
 import { Property } from '../property.model';
-import { PropertyResource } from '../property.resource';
+import { PropertyService } from '../property.service';
 
-import { PropertyResourceUsingObservables } from "../property.resource";
+import { PropertyServiceUsingObservables } from "../property.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,7 +17,7 @@ export class PropertyEditorComponent implements OnInit {
   // we need to initialize since we can't use ?. operator with ngModel
   property: Property = new Property;
 
-  constructor(private propertyResource: PropertyResourceUsingObservables,
+  constructor(private propertyResource: PropertyServiceUsingObservables,
               private router: Router,
               private route: ActivatedRoute) {}
 

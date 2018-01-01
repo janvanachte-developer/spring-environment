@@ -1,0 +1,32 @@
+<div>
+  <p-toolbar>{{title}}</p-toolbar>
+  <p-dataTable [value]="rows" selectionMode="single" [(selection)]="selection" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+    <p-column field="key" header="key" [sortable]="true"></p-column>
+    <p-column field="value" header="value" [sortable]="false"></p-column>
+  </p-dataTable>
+
+  <p-dialog header="property" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="" *ngIf="row">
+      <div>
+        <div><label for="key">key</label></div>
+        <div><input pInputText id="key" [(ngModel)]="row.key" ></div>
+      </div>
+      <div>
+        <div><label for="value">value</label></div>
+        <div><input pInputText id="value" [(ngModel)]="row.value"></div>
+      </div>
+      <div>
+        <p-dropdown [options]="options" [(ngModel)]="option_selection" placeholder="Select an option" (onSelect)="onDropdownSelect($event)"></p-dropdown>
+      </div>
+      <div>
+        <p-dropdown [options]="subOptions" [(ngModel)]="optionL2_selection" placeholder="Select an option" (onSelect)="onDropdownL2Select($event)"></p-dropdown>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <button (click)="save()">changeProperty</button>
+      </div>
+    </footer>
+  </p-dialog>
+
+</div>

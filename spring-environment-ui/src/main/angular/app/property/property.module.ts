@@ -1,8 +1,9 @@
-import { PropertyResource } from './property.resource';
-import {PropertyResourceUsingObservables} from "./property.resource";
+import { PropertyService } from './property.service';
+import {PropertyServiceUsingObservables} from "./property.service";
 import { PropertyComponent} from "./property.component"
 import { PropertyTableComponent } from './property-mat-table/property-mat-table.component';
 import { PropertyListComponent as PropertyListComponent_Material_Observables } from "./property-list-material-with-observable/property-list.component"
+import { PropertyListComponent as PropertyListComponent_Prime_Observables} from "./property-list-prime-with-observable/property-list.component";
 import { PropertyEditorComponent } from "./property-editor-mat-card-with-observable/property-editor.component"
 
 import { APP_ROUTES } from './property.routes';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from "@angular/router";
+import {PrimeModule} from "../prime.module";
 
 @NgModule({
   imports: [
@@ -27,6 +29,7 @@ import {RouterModule} from "@angular/router";
     RouterModule.forRoot(APP_ROUTES),
 
     MaterialModule,
+    PrimeModule,
     FormsModule,
     BrowserAnimationsModule,
 
@@ -38,11 +41,12 @@ import {RouterModule} from "@angular/router";
     PropertyComponent,
     PropertyTableComponent,
     PropertyListComponent_Material_Observables,
+    PropertyListComponent_Prime_Observables,
 
     PropertyEditorComponent
   ],
   providers: [
-    PropertyResource, PropertyResourceUsingObservables,
+    PropertyService, PropertyServiceUsingObservables,
     { provide: API_ENDPOINT, useValue: environment.apiEndpoint }
 
   ],
